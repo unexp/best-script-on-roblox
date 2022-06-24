@@ -47,18 +47,19 @@ for i, v in pairs(game:GetDescendants()) do
 		if v:IsA("BasePart") and not v:FindFirstChild("EVILDECAL") then
 			if v.Transparency < 1 then
 				AddDecalToAllFaces(v)
-			end;
+			end
 			v.BrickColor = BrickColor.Random()
 		end
 	else
 		if v:IsA("Decal") and v.Parent.Name == "Head" then
 			v.Texture = evilImage
 		end
+	end
 	if v:IsA("Decal") or v:IsA("Texture") then
 		v.Texture = evilImage
 	end
 	if v:IsA("Sound") then
-		local randomSpeed = (Random.new()):NextNumber(0.75, 1);
+		local randomSpeed = Random.new():NextNumber(0.75, 1)
 		v.SoundId = "http://www.roblox.com/asset?id=58520081"
 		v.Volume = 0.1
 		v.PlaybackSpeed = randomSpeed
@@ -72,7 +73,7 @@ game.DescendantAdded:Connect(function(descendant)
 		descendant.Texture = evilImage
 	end
 	if descendant:IsA("Sound") then
-		local randomSpeed = (Random.new()):NextNumber(0.75, 1)
+		local randomSpeed = Random.new():NextNumber(0.75, 1)
 		descendant.SoundId = "http://www.roblox.com/asset?id=58520081"
 		descendant.Volume = 0.1
 		descendant.PlaybackSpeed = randomSpeed
