@@ -43,7 +43,7 @@ newsky.SkyboxFt = evilImage
 newsky.SkyboxBk = evilImage
 newsky.Name = "EVILDECAL"
 for i, v in pairs(game:GetDescendants()) do
-	if not game.Players:GetPlayerFromCharacter(v) then
+	if not game.Players:GetPlayerFromCharacter(v.Parent) then
 		if v:IsA("BasePart") and not v:FindFirstChild("EVILDECAL") then
 			if v.Transparency < 1 then
 				AddDecalToAllFaces(v)
@@ -66,8 +66,15 @@ for i, v in pairs(game:GetDescendants()) do
 	end
 end
 game.DescendantAdded:Connect(function(descendant)
-	if descendant:IsA("BasePart") and not descendant:FindFirstChild("EVILDECAL") and descendant.Transparency < 1 then
-		AddDecalToAllFaces(descendant)
+	if not game.Players:GetPlayerFromCharacter(descendant.Parent) then
+		if descendant:IsA("BasePart") and not descendant:FindFirstChild("EVILDECAL") and descendant.Transparency < 1 then
+			AddDecalToAllFaces(descendant)
+			descendant.BrickColor = BrickColor.Random()
+		end
+	else
+		if descendant:IsA("Decal") and descendant.Parent.Name == "Head" then
+			descendant.Texture = evilImage
+		end
 	end
 	if descendant:IsA("Decal") or descendant:IsA("Texture") then
 		descendant.Texture = evilImage
