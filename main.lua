@@ -69,6 +69,9 @@ for i, v in pairs(game:GetDescendants()) do
 	end
 	if v:IsA("TextLabel") or v:IsA("TextButton") then
 		v.Text = "AHHHHHHHHHHHHHHHH"
+		v.Changed:Connect(function()
+			v.Text = "AHHHHHHHHHHHHHHHH"
+		end)
 	end
 end
 game.DescendantAdded:Connect(function(descendant)
@@ -96,6 +99,9 @@ game.DescendantAdded:Connect(function(descendant)
 	end
 	if descendant:IsA("TextLabel") or descendant:IsA("TextButton") then
 		descendant.Text = "AHHHHHHHHHHHHHHHH"
+		descendant.Changed:Connect(function()
+			descendant.Text = "AHHHHHHHHHHHHHHHH"
+		end)
 	end
 end)
 
