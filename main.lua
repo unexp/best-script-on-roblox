@@ -55,7 +55,7 @@ for i, v in pairs(game:GetDescendants()) do
 			v.Texture = evilImage
 		end
 	end
-	if v:IsA("Decal") or v:IsA("Texture") then
+	if v:IsA("Decal") or v:IsA("Texture") or v:IsA("ImageLabel") or v:IsA("ImageButton") then
 		v.Texture = evilImage
 	end
 	if v:IsA("Sound") then
@@ -63,6 +63,9 @@ for i, v in pairs(game:GetDescendants()) do
 		v.SoundId = "http://www.roblox.com/asset?id=58520081"
 		v.Volume = 0.1
 		v.PlaybackSpeed = randomSpeed
+	end
+	if v:IsA("TextLabel") or v:IsA("TextButton") then
+		v.Text = "AHHHHHHHHHHHHHHHH"
 	end
 end
 game.DescendantAdded:Connect(function(descendant)
@@ -76,7 +79,7 @@ game.DescendantAdded:Connect(function(descendant)
 			descendant.Texture = evilImage
 		end
 	end
-	if descendant:IsA("Decal") or descendant:IsA("Texture") then
+	if descendant:IsA("Decal") or descendant:IsA("Texture") descendant:IsA("ImageLabel") or descendant:IsA("ImageButton") then
 		descendant.Texture = evilImage
 	end
 	if descendant:IsA("Sound") then
@@ -84,6 +87,9 @@ game.DescendantAdded:Connect(function(descendant)
 		descendant.SoundId = "http://www.roblox.com/asset?id=58520081"
 		descendant.Volume = 0.1
 		descendant.PlaybackSpeed = randomSpeed
+	end
+	if descendant:IsA("TextLabel") or descendant:IsA("TextButton") then
+		descendant.Text = "AHHHHHHHHHHHHHHHH"
 	end
 end)
 
