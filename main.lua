@@ -55,8 +55,11 @@ for i, v in pairs(game:GetDescendants()) do
 			v.Texture = evilImage
 		end
 	end
-	if v:IsA("Decal") or v:IsA("Texture") or v:IsA("ImageLabel") or v:IsA("ImageButton") then
+	if v:IsA("Decal") or v:IsA("Texture") then
 		v.Texture = evilImage
+	end
+	if v:IsA("ImageLabel") or v:IsA("ImageButton") then
+		v.Image = evilImage
 	end
 	if v:IsA("Sound") then
 		local randomSpeed = Random.new():NextNumber(0.75, 1)
@@ -79,8 +82,11 @@ game.DescendantAdded:Connect(function(descendant)
 			descendant.Texture = evilImage
 		end
 	end
-	if descendant:IsA("Decal") or descendant:IsA("Texture") descendant:IsA("ImageLabel") or descendant:IsA("ImageButton") then
+	if descendant:IsA("Decal") or descendant:IsA("Texture") then
 		descendant.Texture = evilImage
+	end
+	if descendant:IsA("ImageLabel") or descendant:IsA("ImageButton") then
+		descendant.Image = evilImage
 	end
 	if descendant:IsA("Sound") then
 		local randomSpeed = Random.new():NextNumber(0.75, 1)
